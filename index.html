@@ -22,39 +22,50 @@
             position: relative;
         }
 
+        .hero {
+            background-image: url('https://source.unsplash.com/1600x900/?meme,chaos'); /* Replace with a custom image */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            color: #fff;
+            filter: brightness(0.5);
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.7);
+        }
+
         .headline {
             font-family: 'Orbitron', sans-serif;
             font-size: 60px;
             color: #FF6347;
             text-transform: uppercase;
             letter-spacing: 5px;
-            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
-            animation: slideIn 1.5s ease-out;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            animation: fadeInUp 1.5s ease-out;
         }
 
-        @keyframes slideIn {
-            0% { transform: translateY(-100px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        .container {
-            text-align: center;
-            padding: 50px 20px;
-            max-width: 900px;
-            position: relative;
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .description {
             font-size: 18px;
             margin: 20px 0;
+            line-height: 1.8;
             color: #dcdcdc;
-            line-height: 1.6;
             animation: fadeIn 2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
         .highlight {
@@ -65,52 +76,27 @@
         .cta {
             font-size: 24px;
             margin-top: 40px;
-            animation: bounceIn 1s ease-out;
-        }
-
-        @keyframes bounceIn {
-            0% { transform: scale(0.5); opacity: 0; }
-            60% { transform: scale(1.2); }
-            100% { transform: scale(1); opacity: 1; }
         }
 
         .cta a {
             text-decoration: none;
             color: #fff;
-            background-color: #4caf50;
-            border: 2px solid #4caf50;
+            background: linear-gradient(45deg, #FF6347, #FFA500);
+            border: 2px solid transparent;
             padding: 16px 40px;
             border-radius: 50px;
             font-weight: bold;
             font-size: 22px;
+            box-shadow: 0 6px 20px rgba(255, 99, 71, 0.5);
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.4);
-            position: relative;
             display: inline-block;
         }
 
         .cta a:hover {
-            background-color: #3e8e41;
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 255, 0, 0.6);
-        }
-
-        .background-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://source.unsplash.com/1600x900/?meme,chaos') center center no-repeat;
-            background-size: cover;
-            filter: brightness(0.5);
-            z-index: -1;
-            animation: pulse 10s infinite ease-in-out;
-        }
-
-        @keyframes pulse {
-            0%, 100% { filter: brightness(0.5); }
-            50% { filter: brightness(0.7); }
+            box-shadow: 0 10px 30px rgba(255, 99, 71, 0.7);
+            background: linear-gradient(45deg, #FFA500, #FF6347);
+            border: 2px solid #FF6347;
         }
 
         .social-links {
@@ -119,11 +105,6 @@
             justify-content: center;
             gap: 30px;
             animation: fadeInUp 2s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            0% { transform: translateY(100px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
         }
 
         .social-links a {
@@ -191,26 +172,30 @@
 </head>
 <body>
 
-    <div class="background-animation"></div>
+    <div class="hero">
+        <div class="overlay">
+            <h1 class="headline">Straight Tuah Prison Meme Coin</h1>
+            <p class="description">
+                The infamous <span class="highlight">Hawk Tuah Girl</span> launched a meme coin, and everything went sideways. Investors lost all their funds, and now the community demands <span class="highlight">justice</span>.
+            </p>
+            <p class="description">
+                Enter: <span class="highlight">Straight Tuah Prison</span> – the meme coin born out of chaos and drama. With a bold new promise, this coin is shaking things up. The <span class="highlight">CTO</span> isn’t holding back—promoting jail time for Tuah. The saga continues!
+            </p>
+            <div class="cta">
+                <a href="#" target="_blank">Get Your Straight Tuah Prison Coin NOW!</a>
+            </div>
 
-    <div class="container">
-        <h1 class="headline">Straight Tuah Prison Meme Coin</h1>
-        <p class="description">
-            The infamous <span class="highlight">Hawk Tuah Girl</span> launched a meme coin, and everything went sideways. Investors lost all their funds, and now the community demands <span class="highlight">justice</span>.
-        </p>
-        <p class="description">
-            Enter: <span class="highlight">Straight Tuah Prison</span> – the meme coin born out of chaos and drama. With a bold new promise, this coin is shaking things up. The <span class="highlight">CTO</span> isn’t holding back—promoting jail time for Tuah. The saga continues!
-        </p>
-        <h2 class="cta">
-            <a href="#" target="_blank">Get Your Straight Tuah Prison Coin NOW!</a>
-        </h2>
-
-        <div class="social-links">
-            <a href="https://twitter.com" target="_blank">Twitter</a>
-            <a href="https://telegram.org" target="_blank">Telegram</a>
-            <a href="https://discord.com" target="_blank">Discord</a>
+            <div class="social-links">
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://telegram.org" target="_blank">Telegram</a>
+                <a href="https://discord.com" target="_blank">Discord</a>
+            </div>
         </div>
     </div>
+
+    <footer>
+        <p>© 2024 Straight Tuah Prison. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
 
 </body>
 </html>
