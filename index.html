@@ -3,59 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Straight Tuah Prison Meme Coin - A meme coin with an explosive twist.">
+    <meta name="description" content="Straight Tuah Prison - A meme coin born from drama and chaos.">
     <title>Straight Tuah Prison Meme Coin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
-        * {
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
             font-family: 'Roboto', sans-serif;
+            background: #121212;
+            color: #fff;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #ff6347, #ff4500);
-            color: #fff;
-            text-align: center;
-        }
-
-        .container {
-            z-index: 1;
-            position: relative;
-            max-width: 900px;
-            padding: 50px 20px;
         }
 
         .headline {
             font-family: 'Orbitron', sans-serif;
             font-size: 48px;
-            color: #fff;
+            color: #ff6347;
             text-transform: uppercase;
             letter-spacing: 5px;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease-in-out;
+            animation: headline-animate 2s ease-in-out;
         }
 
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(100px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes headline-animate {
+            0% { transform: translateY(-100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+            max-width: 900px;
+            position: relative;
         }
 
         .description {
             font-size: 18px;
-            color: #f0f0f0;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards;
+            margin: 20px 0;
+            color: #dcdcdc;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-out;
         }
 
         @keyframes fadeIn {
@@ -63,64 +55,39 @@
             100% { opacity: 1; }
         }
 
-        .cta a {
-            background: #4caf50;
-            color: #fff;
-            padding: 12px 36px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 20px;
+        .highlight {
+            color: #ff6347;
             font-weight: bold;
-            letter-spacing: 2px;
-            transition: all 0.4s ease-in-out;
-            box-shadow: 0 8px 20px rgba(0, 255, 0, 0.3);
-        }
-
-        .cta a:hover {
-            background: #388e3c;
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 255, 0, 0.5);
         }
 
         .cta {
-            margin-top: 30px;
+            font-size: 22px;
+            margin-top: 40px;
+            color: #4caf50;
+            animation: fadeInUp 2s ease-out;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards;
+        @keyframes fadeInUp {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
-        .social-links a {
-            margin: 10px;
-            font-size: 24px;
-            color: #ff6347;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #fff;
-            transform: scale(1.2);
-        }
-
-        footer {
-            position: absolute;
-            bottom: 10px;
-            font-size: 14px;
-            color: #ddd;
-        }
-
-        footer a {
-            color: #ff6347;
+        .cta a {
             text-decoration: none;
-            transition: color 0.3s;
+            color: #4caf50;
+            border: 2px solid #4caf50;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.4);
         }
 
-        footer a:hover {
+        .cta a:hover {
+            background-color: #4caf50;
             color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 255, 0, 0.6);
         }
 
         .background-animation {
@@ -129,55 +96,98 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://source.unsplash.com/1600x900/?cryptocurrency,tech') no-repeat center center fixed;
+            background: url('https://source.unsplash.com/1600x900/?crypto,tech') center center no-repeat;
             background-size: cover;
-            z-index: -1;
             filter: brightness(0.3);
-        }
-        
-        /* Parallax effect */
-        .parallax {
-            background-image: url('https://source.unsplash.com/1600x900/?digital,technology');
-            background-attachment: fixed;
-            background-size: cover;
-            height: 100vh;
-            position: relative;
             z-index: -1;
-            filter: brightness(0.3);
+            animation: pulse 10s infinite ease-in-out;
         }
 
+        @keyframes pulse {
+            0%, 100% { filter: brightness(0.3); }
+            50% { filter: brightness(0.6); }
+        }
+
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #ff6347;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .headline {
+                font-size: 36px;
+            }
+
+            .cta {
+                font-size: 18px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .social-links a {
+                font-size: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Parallax Section -->
-    <div class="parallax"></div>
+    <div class="background-animation"></div>
 
     <div class="container">
         <h1 class="headline">Straight Tuah Prison Meme Coin</h1>
         <p class="description">
-            The legendary <span style="color: #ff6347; font-weight: bold;">Hawk Tuah Girl</span> launched a meme coin that shook the crypto world. Investors lost it all, and now the streets are demanding <span style="color: #ff6347; font-weight: bold;">justice</span>.
+            The infamous <span class="highlight">Hawk Tuah Girl</span> launched a meme coin, and everything went sideways. Investors lost all their funds, and now the community demands <span class="highlight">justice</span>.
         </p>
         <p class="description">
-            This is the rise of the <span style="color: #ff6347; font-weight: bold;">Straight Tuah Prison</span> meme coin, an unexpected twist in the tale. With a scandalous CTO promoting jail time for Tuah, the drama unfolds. Where will this coin go next?
+            Enter: <span class="highlight">Straight Tuah Prison</span> – the meme coin born out of chaos and drama. With a bold new promise, this coin is shaking things up. The <span class="highlight">CTO</span> isn’t holding back—promoting jail time for Tuah. The saga continues!
         </p>
-
-        <div class="cta">
+        <h2 class="cta">
             <a href="#" target="_blank">Get Your Straight Tuah Prison Coin NOW!</a>
-        </div>
+        </h2>
 
         <div class="social-links">
-            <a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a>
-            <a href="https://telegram.org" target="_blank" class="fab fa-telegram"></a>
-            <a href="https://discord.com" target="_blank" class="fab fa-discord"></a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://telegram.org" target="_blank">Telegram</a>
+            <a href="https://discord.com" target="_blank">Discord</a>
         </div>
 
         <footer>
-            <p>Created by <a href="https://github.com/yourprofile" target="_blank">Your Name</a> | All Rights Reserved.</p>
+            <p>Made with <a href="https://github.com" target="_blank">❤️</a> by Asbeks</p>
         </footer>
     </div>
-
-    <div class="background-animation"></div>
 
 </body>
 </html>
