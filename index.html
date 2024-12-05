@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background: #121212;
+            background: #1a1a1a;
             color: #fff;
             height: 100%;
             display: flex;
@@ -61,9 +61,8 @@
         }
 
         .cta {
-            font-size: 22px;
+            font-size: 20px;
             margin-top: 40px;
-            color: #4caf50;
             animation: fadeInUp 2s ease-out;
         }
 
@@ -74,20 +73,21 @@
 
         .cta a {
             text-decoration: none;
-            color: #4caf50;
+            color: #fff;
+            background-color: #4caf50;
             border: 2px solid #4caf50;
-            padding: 12px 30px;
+            padding: 12px 35px;
             border-radius: 50px;
             font-weight: bold;
+            font-size: 18px;
             transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 10px rgba(0, 255, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.4);
         }
 
         .cta a:hover {
-            background-color: #4caf50;
-            color: #fff;
+            background-color: #3e8e41;
             transform: scale(1.1);
-            box-shadow: 0 6px 15px rgba(0, 255, 0, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 255, 0, 0.6);
         }
 
         .background-animation {
@@ -118,13 +118,13 @@
         .social-links a {
             color: #ff6347;
             font-size: 24px;
-            transition: all 0.3s ease;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
             color: #fff;
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
 
         footer {
@@ -143,13 +143,29 @@
             color: #fff;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .headline {
                 font-size: 36px;
             }
 
-            .cta {
-                font-size: 18px;
+            .cta a {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+
+            .social-links a {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .headline {
+                font-size: 28px;
+            }
+
+            .cta a {
+                padding: 8px 20px;
+                font-size: 14px;
             }
 
             .description {
@@ -157,7 +173,7 @@
             }
 
             .social-links a {
-                font-size: 20px;
+                font-size: 18px;
             }
         }
     </style>
@@ -183,10 +199,6 @@
             <a href="https://telegram.org" target="_blank">Telegram</a>
             <a href="https://discord.com" target="_blank">Discord</a>
         </div>
-
-        <footer>
-            <p>Made with <a href="https://github.com" target="_blank">❤️</a> by Asbeks</p>
-        </footer>
     </div>
 
 </body>
