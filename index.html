@@ -1,201 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Straight Tuah Prison - A meme coin born from drama and chaos.">
-    <title>Straight Tuah Prison Meme Coin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Orbitron:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background: #121212;
-            color: #fff;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        .hero {
-            background-image: url('https://source.unsplash.com/1600x900/?meme,chaos'); /* Replace with a custom image */
-            background-size: cover;
-            background-position: center;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            text-align: center;
-            color: #fff;
-            filter: brightness(0.5);
-        }
-
-        .overlay {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.7);
-        }
-
-        .headline {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 60px;
-            color: #FF6347;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
-            margin-bottom: 20px;
-            animation: fadeInUp 1.5s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .description {
-            font-size: 18px;
-            margin: 20px 0;
-            line-height: 1.8;
-            color: #dcdcdc;
-            animation: fadeIn 2s ease-out;
-        }
-
-        .highlight {
-            color: #FF6347;
-            font-weight: bold;
-        }
-
-        .cta {
-            font-size: 24px;
-            margin-top: 40px;
-        }
-
-        .cta a {
-            text-decoration: none;
-            color: #fff;
-            background: linear-gradient(45deg, #FF6347, #FFA500);
-            border: 2px solid transparent;
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 22px;
-            box-shadow: 0 6px 20px rgba(255, 99, 71, 0.5);
-            transition: all 0.3s ease-in-out;
-            display: inline-block;
-        }
-
-        .cta a:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 99, 71, 0.7);
-            background: linear-gradient(45deg, #FFA500, #FF6347);
-            border: 2px solid #FF6347;
-        }
-
-        .social-links {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            animation: fadeInUp 2s ease-out;
-        }
-
-        .social-links a {
-            color: #FF6347;
-            font-size: 28px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: #fff;
-            transform: scale(1.2);
-        }
-
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 14px;
-            color: #aaa;
-        }
-
-        footer a {
-            color: #FF6347;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .headline {
-                font-size: 40px;
-            }
-
-            .cta a {
-                padding: 12px 30px;
-                font-size: 20px;
-            }
-
-            .social-links a {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .headline {
-                font-size: 30px;
-            }
-
-            .cta a {
-                padding: 10px 25px;
-                font-size: 18px;
-            }
-
-            .description {
-                font-size: 16px;
-            }
-
-            .social-links a {
-                font-size: 20px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C2B Payment Integration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #0056b3;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0056b3;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .button:hover {
+      background-color: #003d80;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 5px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>C2B Payment Integration</h1>
+    <p>This page demonstrates a Client-to-Business (C2B) payment process, including the request signature, order creation, and callback handling.</p>
 
-    <div class="hero">
-        <div class="overlay">
-            <h1 class="headline">Straight Tuah Prison Meme Coin</h1>
-            <p class="description">
-                The infamous <span class="highlight">Hawk Tuah Girl</span> launched a meme coin, and everything went sideways. Investors lost all their funds, and now the community demands <span class="highlight">justice</span>.
-            </p>
-            <p class="description">
-                Enter: <span class="highlight">Straight Tuah Prison</span> – the meme coin born out of chaos and drama. With a bold new promise, this coin is shaking things up. The <span class="highlight">CTO</span> isn’t holding back—promoting jail time for Tuah. The saga continues!
-            </p>
-            <div class="cta">
-                <a href="#" target="_blank">Get Your Straight Tuah Prison Coin NOW!</a>
-            </div>
+    <h2>Step 1: Create Order</h2>
+    <p>Use the API to create a payment order. Here is an example payload:</p>
+    <pre>
+{
+  "appid": "853694808089634",
+  "merch_code": "245445",
+  "merch_order_id": "1670575560882",
+  "notify_url": "http://your-server.com/v2/api/order-v2/mini/payment",
+  "trade_type": "Checkout",
+  "total_amount": "10.00",
+  "trans_currency": "ETB",
+  "business_type": "BuyGoods"
+}
+    </pre>
+    <a href="javascript:void(0)" class="button" onclick="createOrder()">Create Order</a>
 
-            <div class="social-links">
-                <a href="https://twitter.com" target="_blank">Twitter</a>
-                <a href="https://telegram.org" target="_blank">Telegram</a>
-                <a href="https://discord.com" target="_blank">Discord</a>
-            </div>
-        </div>
-    </div>
+    <h2>Step 2: Sign Request</h2>
+    <p>Prepare the request by:</p>
+    <ul>
+      <li>Sorting parameters alphabetically</li>
+      <li>Joining key-value pairs with <code>&</code></li>
+      <li>Signing the string with your private key</li>
+    </ul>
+    <p>Example prepared string:</p>
+    <pre>
+appid=853694808089634&business_type=BuyGoods&merch_code=245445&merch_order_id=1670575560882&notify_url=http://your-server.com/v2/api/order-v2/mini/payment&total_amount=10.00&trans_currency=ETB&trade_type=Checkout
+    </pre>
 
-    <footer>
-        <p>© 2024 Straight Tuah Prison. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
-    </footer>
+    <h2>Step 3: Handle Callback</h2>
+    <p>The payment server will send a callback to your <code>notify_url</code> endpoint. Sample payload:</p>
+    <pre>
+{
+  "notify_url": "http://your-server.com/v2/api/order-v2/mini/payment",
+  "appid": "853694808089634",
+  "notify_time": "1670575472482",
+  "merch_code": "245445",
+  "merch_order_id": "1670575560882",
+  "payment_order_id": "00801104C911443200001002",
+  "total_amount": "10.00",
+  "trans_currency": "ETB",
+  "trade_status": "Completed",
+  "trans_end_time": "1670575472000",
+  "sign": "AOwWQF0QDg...",
+  "sign_type": "SHA256WithRSA"
+}
+    </pre>
 
+    <h2>Try it Yourself</h2>
+    <p>Click the button below to simulate a payment callback:</p>
+    <a href="javascript:void(0)" class="button" onclick="simulateCallback()">Simulate Callback</a>
+  </div>
+
+  <script>
+    // Simulate Order Creation
+    function createOrder() {
+      alert("Order Created! Check your console for the payload.");
+      console.log({
+        appid: "853694808089634",
+        merch_code: "245445",
+        merch_order_id: "1670575560882",
+        notify_url: "http://your-server.com/v2/api/order-v2/mini/payment",
+        trade_type: "Checkout",
+        total_amount: "10.00",
+        trans_currency: "ETB",
+        business_type: "BuyGoods"
+      });
+    }
+
+    // Simulate Payment Callback
+    function simulateCallback() {
+      alert("Callback Received! Check your console for the payload.");
+      console.log({
+        notify_url: "http://your-server.com/v2/api/order-v2/mini/payment",
+        appid: "853694808089634",
+        notify_time: "1670575472482",
+        merch_code: "245445",
+        merch_order_id: "1670575560882",
+        payment_order_id: "00801104C911443200001002",
+        total_amount: "10.00",
+        trans_currency: "ETB",
+        trade_status: "Completed",
+        trans_end_time: "1670575472000",
+        sign: "AOwWQF0QDg...",
+        sign_type: "SHA256WithRSA"
+      });
+    }
+  </script>
 </body>
 </html>
