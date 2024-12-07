@@ -3,140 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C2B Payment Integration</title>
+  <title>Pay Now</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f9f9f9;
+      background-color: #f4f4f9;
       color: #333;
-    }
-    h1, h2 {
-      color: #0056b3;
+      margin: 0;
+      padding: 0;
     }
     .container {
-      max-width: 800px;
-      margin: auto;
+      max-width: 500px;
+      margin: 50px auto;
       background: #fff;
       padding: 20px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #0056b3;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
     .button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #0056b3;
+      display: block;
+      width: 100%;
+      background: #0056b3;
       color: white;
+      padding: 10px;
+      text-align: center;
       text-decoration: none;
       border-radius: 5px;
+      font-weight: bold;
       margin-top: 10px;
     }
     .button:hover {
-      background-color: #003d80;
+      background: #003d80;
     }
-    code {
-      background-color: #f4f4f4;
-      padding: 5px;
-      border-radius: 4px;
+    .message {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: green;
     }
-    pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
+    .error {
+      color: red;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>C2B Payment Integration</h1>
-    <p>This page demonstrates a Client-to-Business (C2B) payment process, including the request signature, order creation, and callback handling.</p>
-
-    <h2>Step 1: Create Order</h2>
-    <p>Use the API to create a payment order. Here is an example payload:</p>
-    <pre>
-{
-  "appid": "853694808089634",
-  "merch_code": "245445",
-  "merch_order_id": "1670575560882",
-  "notify_url": "http://your-server.com/v2/api/order-v2/mini/payment",
-  "trade_type": "Checkout",
-  "total_amount": "10.00",
-  "trans_currency": "ETB",
-  "business_type": "BuyGoods"
-}
-    </pre>
-    <a href="javascript:void(0)" class="button" onclick="createOrder()">Create Order</a>
-
-    <h2>Step 2: Sign Request</h2>
-    <p>Prepare the request by:</p>
-    <ul>
-      <li>Sorting parameters alphabetically</li>
-      <li>Joining key-value pairs with <code>&</code></li>
-      <li>Signing the string with your private key</li>
-    </ul>
-    <p>Example prepared string:</p>
-    <pre>
-appid=853694808089634&business_type=BuyGoods&merch_code=245445&merch_order_id=1670575560882&notify_url=http://your-server.com/v2/api/order-v2/mini/payment&total_amount=10.00&trans_currency=ETB&trade_type=Checkout
-    </pre>
-
-    <h2>Step 3: Handle Callback</h2>
-    <p>The payment server will send a callback to your <code>notify_url</code> endpoint. Sample payload:</p>
-    <pre>
-{
-  "notify_url": "http://your-server.com/v2/api/order-v2/mini/payment",
-  "appid": "853694808089634",
-  "notify_time": "1670575472482",
-  "merch_code": "245445",
-  "merch_order_id": "1670575560882",
-  "payment_order_id": "00801104C911443200001002",
-  "total_amount": "10.00",
-  "trans_currency": "ETB",
-  "trade_status": "Completed",
-  "trans_end_time": "1670575472000",
-  "sign": "AOwWQF0QDg...",
-  "sign_type": "SHA256WithRSA"
-}
-    </pre>
-
-    <h2>Try it Yourself</h2>
-    <p>Click the button below to simulate a payment callback:</p>
-    <a href="javascript:void(0)" class="button" onclick="simulateCallback()">Simulate Callback</a>
+    <h1>Pay Now</h1>
+    <form id="paymentForm">
+      <div class="form-group">
+        <label for="amount">Amount (ETB)</label>
+        <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Payment Description</label>
+        <input type="text" id="description" name="description" placeholder="Enter description" required>
+      </div>
+      <a href="javascript:void(0)" class="button" onclick="processPayment()">Submit Payment</a>
+    </form>
+    <div id="responseMessage" class="message"></div>
   </div>
 
   <script>
-    // Simulate Order Creation
-    function createOrder() {
-      alert("Order Created! Check your console for the payload.");
-      console.log({
-        appid: "853694808089634",
-        merch_code: "245445",
-        merch_order_id: "1670575560882",
-        notify_url: "http://your-server.com/v2/api/order-v2/mini/payment",
+    async function processPayment() {
+      const form = document.getElementById("paymentForm");
+      const amount = form.amount.value;
+      const description = form.description.value;
+
+      if (!amount || !description) {
+        document.getElementById("responseMessage").textContent = "Please fill in all fields.";
+        document.getElementById("responseMessage").classList.add("error");
+        return;
+      }
+
+      // Prepare request body
+      const paymentData = {
+        appid: "930231098961202", // Replace with your app ID
+        merch_code: "123456", // Replace with your merchant code
+        merch_order_id: Date.now().toString(),
+        notify_url: "https://yourserver.com/notify",
         trade_type: "Checkout",
-        total_amount: "10.00",
+        total_amount: amount,
         trans_currency: "ETB",
-        business_type: "BuyGoods"
-      });
+        business_type: "BuyGoods",
+        title: description,
+        nonce_str: Math.random().toString(36).substring(2),
+        timestamp: Math.floor(Date.now() / 1000).toString(),
+      };
+
+      // Sort parameters alphabetically and create query string
+      const sortedKeys = Object.keys(paymentData).sort();
+      const queryString = sortedKeys.map(key => `${key}=${paymentData[key]}`).join("&");
+
+      // Generate RSA signature (example using a function you implement)
+      const privateKey = `-----BEGIN PRIVATE KEY-----
+YOUR_RSA_PRIVATE_KEY_HERE
+-----END PRIVATE KEY-----`;
+
+      const signature = await generateSignature(queryString, privateKey);
+
+      // Add signature to request
+      paymentData.sign = signature;
+      paymentData.sign_type = "SHA256WithRSA";
+
+      // Send request to payment server
+      try {
+        const response = await fetch("https://paymentserver.com/api/v1/payment", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(paymentData),
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          document.getElementById("responseMessage").textContent = "Payment successfully processed!";
+        } else {
+          document.getElementById("responseMessage").textContent = "Payment failed: " + result.message;
+          document.getElementById("responseMessage").classList.add("error");
+        }
+      } catch (error) {
+        console.error("Error processing payment:", error);
+        document.getElementById("responseMessage").textContent = "An error occurred while processing your payment.";
+        document.getElementById("responseMessage").classList.add("error");
+      }
     }
 
-    // Simulate Payment Callback
-    function simulateCallback() {
-      alert("Callback Received! Check your console for the payload.");
-      console.log({
-        notify_url: "http://your-server.com/v2/api/order-v2/mini/payment",
-        appid: "853694808089634",
-        notify_time: "1670575472482",
-        merch_code: "245445",
-        merch_order_id: "1670575560882",
-        payment_order_id: "00801104C911443200001002",
-        total_amount: "10.00",
-        trans_currency: "ETB",
-        trade_status: "Completed",
-        trans_end_time: "1670575472000",
-        sign: "AOwWQF0QDg...",
-        sign_type: "SHA256WithRSA"
-      });
+    // Example function to generate RSA signature
+    async function generateSignature(data, privateKey) {
+      const encoder = new TextEncoder();
+      const encodedData = encoder.encode(data);
+      const cryptoKey = await window.crypto.subtle.importKey(
+        "pkcs8",
+        str2ab(privateKey),
+        { name: "RSA-PSS", hash: "SHA-256" },
+        false,
+        ["sign"]
+      );
+      const signature = await window.crypto.subtle.sign(
+        { name: "RSA-PSS", saltLength: 32 },
+        cryptoKey,
+        encodedData
+      );
+      return btoa(String.fromCharCode(...new Uint8Array(signature)));
+    }
+
+    // Helper function to convert PEM string to ArrayBuffer
+    function str2ab(str) {
+      const binaryString = atob(str.replace(/-----.*?-----|\n/g, ""));
+      const len = binaryString.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      return bytes.buffer;
     }
   </script>
 </body>
